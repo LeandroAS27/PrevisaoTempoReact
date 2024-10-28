@@ -14,7 +14,7 @@ function App(props) {
     const [forecastData, setForeCastData] = useState([]);
     const [showCard, setShowCard] = useState(true)
 
-    const API_KEY = '9970279b8f33293ddec249fb791de68a';
+    const API_KEY = '';
 
     async function getWeather() {
       try {
