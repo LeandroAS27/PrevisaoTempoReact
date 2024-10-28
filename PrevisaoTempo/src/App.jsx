@@ -14,7 +14,7 @@ function App(props) {
     const [forecastData, setForeCastData] = useState([]);
     const [showCard, setShowCard] = useState(true)
 
-    const API_KEY = '9970279b8f33293ddec249fb791de68a';
+    const API_KEY = '';
 
     async function getWeather() {
       try {
@@ -52,7 +52,7 @@ function App(props) {
   return (
     <main className='flex flex-col items-center justify-center text-center min-h-lvh min-w-lvh bg-gradient-to-b from-orange-500 to-yellow-500'>
       <header className='w-full h-auto flex justify-center items-center p-4'>
-        <h1 className='text-xl font-bold text-white mb-12 sm:text-7xl'>Previsão do Tempo</h1>
+        <h1 className='text-2xl font-bold text-white mb-12 sm:text-7xl'>Previsão do Tempo</h1>
       </header>
 
         {weatherData && showCard && (

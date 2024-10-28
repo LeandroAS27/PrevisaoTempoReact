@@ -2,16 +2,18 @@ import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const CityColumn = ({forecastData}) => {
+const CityColumn = () => {
     const [weatherData, setWeatherData] = useState([]);
+
+    const API_KEY = ''
 
     useEffect(() => {
         const fetchWeather = async () => {
             try {
                 const response = await axios.get('https://api.openweathermap.org/data/2.5/group', {
                     params: {
-                        id: '3469058,3448439,3452463,3462463,3448429,3405870,3451190,3464417,3462463,3663517,3403448',
-                        appid: '9970279b8f33293ddec249fb791de68a',
+                        id: '3469058,3448439,3452463,3405870,3451190,3663517,3470127,3450554,6322752,6320062,3397277',
+                        appid: API_KEY,
                         units: 'metric',
                     }
                 })
