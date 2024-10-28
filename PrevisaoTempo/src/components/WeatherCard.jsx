@@ -2,7 +2,7 @@
 const WeatherCard = ({weatherData, forecastData, setShowCard}) => {
     return(
             //so falta eu alterar o card na parte responsiva para o celular
-            <div className='w-full max-w-md bg-[#fff3e4] p-4 shadow-lg mb-4 relative'>
+            <article className='w-full max-w-md bg-[#fff3e4] p-4 shadow-lg mb-4 relative'>
               <button 
               className='absolute top-2 right-3 text-orange-400 text-3xl cursor-pointer z-10'
               onClick={() => setShowCard(false)}>
@@ -11,12 +11,12 @@ const WeatherCard = ({weatherData, forecastData, setShowCard}) => {
               <p className='font-bold text-small text-gray-700 relative -right-10 text-left'>{weatherData.name}</p>
               
               {/* Primeira linha com a temperatura e condicao */}
-              <div className='flex relative left-10 font-bold text-3xl text-gray-700 mt-4'>
+              <header className='flex relative left-10 font-bold text-3xl text-gray-700 mt-4'>
                 <h1 className='capitalize'>{Math.round(weatherData.main.temp)}°C {weatherData.weather[0].description}</h1>
-              </div>
+              </header>
               
               {/* Segunda linha com a temperatura minima, maxima e sensacao termica */}
-              <div className='flex mt-4'>
+              <section className='flex mt-4'>
                 <div className='flex ml-7'>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -44,16 +44,16 @@ const WeatherCard = ({weatherData, forecastData, setShowCard}) => {
                 </div>
 
                 <p className='ml-6'>Sensação <strong className='text-gray-700'>{Math.round(weatherData.main.feels_like)}°C</strong></p>
-              </div>
+              </section>
 
               {/* Terceira linha com vento e umidade */}
-              <div className='flex mt-4 ml-8'>
+              <section className='flex mt-4 ml-8'>
                 <p>Vento <strong className='text-gray-700'>{(weatherData.wind.speed * 3.6).toFixed(2)}km/h</strong></p>
                 <p className='ml-4'>Humidade <strong className='text-gray-700'>{weatherData.main.humidity}%</strong></p>
-              </div>
+              </section>
 
               {/* os proximos 5 dias */}
-              <div className='border-t-2 border-yellow-600 my-4 py-4'>
+              <section className='border-t-2 border-yellow-600 my-4 py-4'>
                 <div className='grid grid-cols-5 gap-4 text-center'>
                   {forecastData.map((forecast, index) => (
                     <div key={index} className='flex flex-col items-center'>
@@ -65,8 +65,8 @@ const WeatherCard = ({weatherData, forecastData, setShowCard}) => {
                     </div>
                   ))}
                 </div>
-              </div>
-            </div>
+              </section>
+            </article>
     )
 }
 

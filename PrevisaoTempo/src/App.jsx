@@ -27,7 +27,7 @@ function App(props) {
           }
         });
 
-        const forecastWeatherResponse = await axios.get('https://api.openweathermap.org/data/2.5/forecast', {
+        const forecastWeatherResponse = await axios.get('https://pro.openweathermap.org/data/2.5/forecast/', {
           params:{
             q:city,
             appid: API_KEY,
@@ -50,24 +50,26 @@ function App(props) {
     }
 
   return (
-    <div className='flex flex-col items-center justify-center text-center min-h-lvh min-w-lvh bg-gradient-to-b from-orange-500 to-yellow-500'>
-        <h1 className='text-7xl font-bold text-white mb-12 text-3xl sm:text-7xl'>Previsão do Tempo</h1>
-
-        <CitySearch city={city} setCity={setCity} getWeather={getWeather} props={props}/>
+    <main className='flex flex-col items-center justify-center text-center min-h-lvh min-w-lvh bg-gradient-to-b from-orange-500 to-yellow-500'>
+      <header className='w-full h-auto flex justify-center items-center p-4'>
+        <h1 className='text-xl font-bold text-white mb-12 sm:text-7xl'>Previsão do Tempo</h1>
+      </header>
 
         {weatherData && showCard && (
           <WeatherCard weatherData={weatherData} forecastData={forecastData} setShowCard={setShowCard}/>
         )}
 
+        <CitySearch city={city} setCity={setCity} getWeather={getWeather} props={props}/>
+
         {error && <p>{error}</p>}
-      <main className='max-w-6xl mx-auto flex flex-col justify-center'>
+      <section className='max-w-6xl mx-auto flex flex-col justify-center'>
         <h1 className='text-white text-4xl font-bold my-4 text-center w-2/4'>Capitais</h1>
         <div>
           <CityColumn/>
         </div>
-      </main>
+      </section>
 
-    </div>
+    </main>
   )
 }
 
