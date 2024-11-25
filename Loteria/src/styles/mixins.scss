@@ -1,0 +1,14 @@
+@mixin flex-center($direction: row, $align: center, $justify: center){
+    display: flex;
+    flex-direction: $direction;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+@mixin respond-to($breakpoint){
+    @if $breakpoint == mobile{
+        @media screen and (max-width: 768px){
+            @content;
+        }
+    }
+}
